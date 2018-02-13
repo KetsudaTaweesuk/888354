@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Randdom</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+</head>
+<body background="bg.png">
+	<h1><center>Ex Randdom Number for Answer </center></h1>
+	<hr>
+	<br>
+
+	<center><button id="randdomnum">Randdom Number</button></center>
+	<br>
+        <center><span id="num"></span><input type="text" id="answer"></center>
+	<br>
+	<center><button id="resultnum">Send Answer</button></center>
+	<br>
+	<center>Result:&nbsp;&nbsp;<span id="result"></span>&nbsp;&nbsp;</center>
+
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function(){
+			var minNumber = 0;
+			var maxNumber = 1000;
+			var num1,num2,sum;
+		function randdomNum(minNumber,maxNumber){
+			 num1 = Math.floor(Math.random() *(maxNumber-minNumber+1)+minNumber);
+			 num2 = Math.floor(Math.random() *(maxNumber-minNumber+1)+minNumber);
+			sum = num1+num2;
+		}
+
+		$("#randdomnum").click(function(){
+			var rand = randdomNum(minNumber,maxNumber);
+			$("#num").html(num1+"+"+num2+"=");
+
+			$("#resultnum").click(function(){
+				var amount = $("#answer").val();
+				if (amount == sum){
+					$("#result").html("That's correct");
+					$('#result').css('color','green');
+				}else{
+					$("#result").html("That's wrong.The answer is "+sum);
+					$('#result').css('color','red');
+
+				}
+			});
+		});
+	});
+</script>
